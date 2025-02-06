@@ -8,37 +8,42 @@ namespace AlmoxarifadoBackAPI.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class CategoriaController : ControllerBase
+    public class ProdutoController : ControllerBase
     {
-        private readonly ICategoriaRepositorio _db;
-        public CategoriaController(ICategoriaRepositorio db)
+        private readonly IProdutoRepositorio _db;
+        public ProdutoController(IProdutoRepositorio db)
         {
             _db = db;
 
         }
 
-        [HttpGet("/listacategoria")]
+        [HttpGet("/listaProdutos")]
         public IActionResult listaCategorias()
         {
             return Ok(_db.GetAll());
         }
 
-        [HttpPost("/categoria")]
-        public IActionResult listaCategorias(CategoriaDTO categoria)
+        [HttpPost("/Produtos")]
+        public IActionResult listaCategorias(ProdutoDTO produto)
         {
-            return Ok(_db.GetAll().Where(x=>x.Codigo==categoria.Codigo));
+            return Ok(_db.GetAll().Where(x=>x.IdProduto==produto.IdProduto));
         }
 
-        [HttpPost("/criarcategoria")]
-        public IActionResult criarCategoria(CategoriaCadastroDTO categoria)
+        [HttpPost("/criarProduto")]
+        public IActionResult criarProduto(ProdutoCadastroDTO produto)
         {
 
-            var novaCategoria = new Categoria()
+            var novoProduto = new Produto()
             {
-                Descricao = categoria.Descricao
+                Descricao = produto.Descricao,
+                UnMdedida = produto.UnMdedida,
+                EPermanente = produto.EPermanente,
+                EstoqueAtual = produto.EstoqueAtual,
+                PrecoProduto = produto.PrecoProduto,
+                IdCategoria = produto.IdCategoria
             };
             //_categorias.Add(novaCategoria);
-            _db.Add(novaCategoria);
+            _db.Add(novoProduto);
             return Ok("Cadastro com Sucesso");
         }
 
