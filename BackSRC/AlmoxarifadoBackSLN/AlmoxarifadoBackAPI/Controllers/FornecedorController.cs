@@ -27,7 +27,7 @@ namespace AlmoxarifadoBackAPI.Controllers
         [HttpPost("/Fornecedor")]
         public IActionResult listaFornecedor(FornecedorDTO fornecedor)
         {
-            return Ok(_db.GetAll().Where(x => x.IdFornecedor == fornecedor.IdFornecedor));
+            return Ok(_db.GetAll().Where(x => x.Codigo == fornecedor.Codigo));
         }
 
         [HttpPost("/criarFornecedor")]
@@ -36,7 +36,12 @@ namespace AlmoxarifadoBackAPI.Controllers
 
             var novoFornecedor = new Fornecedor() { 
                 NomeFornecedor = fornecedor.NomeFornecedor,
-                EnderecoFornecedor =fornecedor.EnderecoFornecedor
+                Endereco =fornecedor.Endereco,
+                 Bairro = fornecedor.Bairro,
+                  Cidade = fornecedor.Cidade,
+                   Estado = fornecedor.Estado,
+                    Telefone = fornecedor.Telefone,
+                  CNPJ = fornecedor.CNPJ
             };
             //_categorias.Add(novaCategoria);
             _db.Add(novoFornecedor);

@@ -25,3 +25,9 @@ values ('Luiz', 'Rua Caetano', 'Centro', 'Indiaroba', 'SE', '(79)9 9675-9541', '
 --Secretaria
 insert into Secretaria(NomeSecretaria, Endereco, Bairro, Cidade, Estado, Telefone, CNPJ)
 values ('Destribuidora', 'Rua Alguma Coisa', 'Alagoas', 'Estancia', 'SE', '(79)9 9600-0290')
+
+--Entrada
+insert into Entrada(DataEntrada, CodigoFronecedor, Observacao)
+values ('09/01/2025', '1', 'Falta conferir')
+
+--

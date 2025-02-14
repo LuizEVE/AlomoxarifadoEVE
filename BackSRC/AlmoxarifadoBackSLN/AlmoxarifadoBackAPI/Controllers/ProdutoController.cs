@@ -27,7 +27,7 @@ namespace AlmoxarifadoBackAPI.Controllers
         [HttpPost("/produto")]
         public IActionResult listaProdutos(ProdutoDTO produto)
         {
-            return Ok(_db.GetAll().Where(x => x.IdProduto == produto.IdProduto));
+            return Ok(_db.GetAll().Where(x => x.Codigo == produto.Codigo));
         }
 
         [HttpPost("/criarproduto")]
@@ -39,8 +39,8 @@ namespace AlmoxarifadoBackAPI.Controllers
                 Descricao = produto.Descricao,
                 UnMedida = produto.UnMedida,
                 EstoqueAtual = produto.EstoqueAtual,
-                PrecoProduto = produto.PrecoProduto,
-                IdCategoria = produto.IdCategoria
+                EPermanente = produto.EPermanente,
+                CodigoCategoria = produto.CodigoCategoria
             };
             //_categorias.Add(novaCategoria);
             _db.Add(novoProduto);
