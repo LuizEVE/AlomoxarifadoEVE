@@ -17,6 +17,11 @@ builder.Services.AddScoped<ICategoriaRepositorio, CategoriaRepositorio>();
 builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 builder.Services.AddScoped<IFornecedorRepositorio, FornecedorRepositorio>();
 builder.Services.AddScoped<ISecretariaRepositorio, SecretariaRepositorio>();
+builder.Services.AddScoped<IEntradaRepositorio, EntradaRepositorio>();
+builder.Services.AddScoped<ISaidaRepositorio, SaidaRepositorio>();
+builder.Services.AddScoped<IItensEntradaRepositorio, ItensEntradaRepositorio>();
+builder.Services.AddScoped<IItensSaidaRepositorio, ItensSaidaRepositorio>();
+
 
 var app = builder.Build();
 
