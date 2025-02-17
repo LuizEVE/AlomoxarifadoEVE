@@ -24,10 +24,20 @@ values ('Luiz', 'Rua Caetano', 'Centro', 'Indiaroba', 'SE', '(79)9 9675-9541', '
 
 --Secretaria
 insert into Secretaria(NomeSecretaria, Endereco, Bairro, Cidade, Estado, Telefone, CNPJ)
-values ('Destribuidora', 'Rua Alguma Coisa', 'Alagoas', 'Estancia', 'SE', '(79)9 9600-0290')
+values ('Obras', 'Rua Alguma Coisa', 'Alagoas', 'Estancia', 'SE', '(79)9 9600-0290', '12.345.543/0001-10')
 
 --Entrada
 insert into Entrada(DataEntrada, CodigoFronecedor, Observacao)
 values ('09/01/2025', '1', 'Falta conferir')
 
---
+--ItensEntrada
+insert into ItensEntrada(CodigoProduto, CodigoEntrada, Quantidade, Preco, Total)
+values('1', '1', '200', '210.50', '300')
+
+--Saida
+insert into Saida(DataSaida, CodigoSecretaria, Observacao)
+values('11/10/2023', '1', 'Falta receber o pagamento')
+
+--ItemsSaida
+insert into ItensSaida(CodigoProduto, CodigoSaida, Quantidade, Proco, Total)
+values('1', '1', '300', '230.90', '200')

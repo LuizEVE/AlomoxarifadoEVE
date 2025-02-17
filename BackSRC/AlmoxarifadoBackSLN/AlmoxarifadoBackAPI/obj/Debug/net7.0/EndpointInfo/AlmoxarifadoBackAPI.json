@@ -227,6 +227,80 @@
         }
       }
     },
+    "/listaSecretaria": {
+      "get": {
+        "tags": [
+          "Secretaria"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Secretaria": {
+      "post": {
+        "tags": [
+          "Secretaria"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretariaDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretariaDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretariaDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/criarSecretaria": {
+      "post": {
+        "tags": [
+          "Secretaria"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretariaCadastroDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretariaCadastroDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecretariaCadastroDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -296,7 +370,27 @@
             "type": "string",
             "nullable": true
           },
-          "enderecoFornecedor": {
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "bairro": {
+            "type": "string",
+            "nullable": true
+          },
+          "cidade": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefone": {
+            "type": "string",
+            "nullable": true
+          },
+          "cnpj": {
             "type": "string",
             "nullable": true
           }
@@ -306,7 +400,7 @@
       "FornecedorDTO": {
         "type": "object",
         "properties": {
-          "idFornecedor": {
+          "codigo": {
             "type": "integer",
             "format": "int32"
           }
@@ -325,18 +419,13 @@
             "nullable": true
           },
           "ePermanente": {
-            "type": "integer",
-            "format": "int32"
+            "type": "boolean"
           },
           "estoqueAtual": {
             "type": "integer",
             "format": "int32"
           },
-          "precoProduto": {
-            "type": "number",
-            "format": "double"
-          },
-          "idCategoria": {
+          "codigoCategoria": {
             "type": "integer",
             "format": "int32"
           }
@@ -346,7 +435,51 @@
       "ProdutoDTO": {
         "type": "object",
         "properties": {
-          "idProduto": {
+          "codigo": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecretariaCadastroDTO": {
+        "type": "object",
+        "properties": {
+          "nomeSecretaria": {
+            "type": "string",
+            "nullable": true
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "bairro": {
+            "type": "string",
+            "nullable": true
+          },
+          "cidade": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefone": {
+            "type": "string",
+            "nullable": true
+          },
+          "cnpj": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecretariaDTO": {
+        "type": "object",
+        "properties": {
+          "codigo": {
             "type": "integer",
             "format": "int32"
           }
